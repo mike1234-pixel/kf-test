@@ -19,7 +19,7 @@ const SiteMap: React.FunctionComponent<{}> = () => {
     ];
 
     return <div>
-        <p>SiteMap Component</p>
+        <p>SiteMap component</p>
         <GoogleMap
             mapContainerStyle={
                 {
