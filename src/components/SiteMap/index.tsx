@@ -5,8 +5,6 @@ const SiteMap: React.FunctionComponent<{}> = () => {
 
     const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
-    console.log(googleMapsApiKey);
-
     // Google Map API loader
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
