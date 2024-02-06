@@ -1,0 +1,58 @@
+:root {
+  --navigation: #180048;
+  --primary: #5F1AD1;
+  --secondary: #EC4FF2;
+  --surface: #FFFFFF;
+  --background: #ECEFF1;
+
+  --error: #DC3545;
+  --info: #0D6EFD;
+  --success: #198754;
+  --warning: #FFC107;
+
+  --status-alert: #FF3849;
+  --status-good: #34CD71;
+  --status-unknown: #CCCCCC;
+  --status-warning: #FFC144;
+
+  --dc-high: #FB439B;
+  --dc-both: #9B10A9;
+  --dc-low: #F25BDC; 
+  --dispatch: #9DE96B;
+  --dfr-dispatch: #FFB0B0;
+  --dfr-third-party: #F5524B;
+  --dfr-dlh: #FBB243;
+  --dfr-high: #F3C824;
+  --dfr-both: #FF692A;
+  --dfr-low: #FBEC3B;
+  --sfr-third-party: #23B994;
+  --sfr-lfs: #108FA2;
+  --sfr-high: #0C40B6;
+  --sfr-both: #24A5DE;
+  --sfr-low: #3D4FD7;
+  --triad: #EAFF69;
+  --unavailable: #D63C35;
+
+  --text-black-he: #000000;
+  --text-black-me: rgba(0,0,0,.80);
+  --text-black-le: rgba(0,0,0,.68);
+  --text-white-he: #FFFFFF;
+  --text-white-me: rgba(255,255,255,.80);
+  --text-white-le: rgba(255,255,255,.68);
+
+  --overlay-white-04: rgba(255,255,255,.04);
+  --overlay-white-08: rgba(255,255,255,.08);
+  --overlay-white-12: rgba(255,255,255,.12);
+  --overlay-white-16: rgba(255,255,255,.16);
+  --overlay-white-24: rgba(255,255,255,.24);
+  --overlay-white-48: rgba(255,255,255,.48);
+  --overlay-white-96: rgba(255,255,255,.96);
+
+  --overlay-black-04: rgba(0,0,0,.04);
+  --overlay-black-08: rgba(0,0,0,.08);
+  --overlay-black-12: rgba(0,0,0,.12);
+  --overlay-black-16: rgba(0,0,0,.16);
+  --overlay-black-24: rgba(0,0,0,.24);
+  --overlay-black-48: rgba(0,0,0,.48);
+  --overlay-black-96: rgba(0,0,0,.96);
+}

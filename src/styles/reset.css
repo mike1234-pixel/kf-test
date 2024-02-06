@@ -1,0 +1,18 @@
+@import-normalize; /* bring in normalize.css styles */
+
+@import url('./palette.css');
+@import url('./type-face.css');
+
+body {
+  background: var(--navigation);
+  margin: 0;
+  font-family: 'HCo Gotham SSm', Arial, Helvetica, sans-serif !important;
+	font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
