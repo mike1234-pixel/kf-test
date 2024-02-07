@@ -39,11 +39,6 @@ ul {
   transition: height 0.3s, opacity 0.3s;
 }
 
-ul a {
-  color: var(--text-white-he);
-  text-decoration: none;
-}
-
 ul.showList {
   height: auto;
   opacity: 1;

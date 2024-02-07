@@ -5,6 +5,7 @@ import SiteMap from 'components/SiteMap';
 import { useEffect, useState } from 'react';
 import { Site } from '../../interfaces/Site';
 import { siteLinks } from 'constants/siteLinks';
+import { HeaderLink } from 'components/HeaderLink';
 import styles from './styles/Portfolio.module.scss';
 
 export default function Portfolio() {
@@ -17,11 +18,7 @@ export default function Portfolio() {
         <div className={shell}>
             <Header>
                 {
-                    siteLinks.map((siteLink) => {
-                        return <li key={siteLink.id}>
-                            <a href={siteLink.url} target="_blank" rel="noreferrer">{siteLink.name}</a>
-                        </li>;
-                    })
+                    siteLinks.map((siteLink) => <HeaderLink siteLink={siteLink} />)
                 }
             </Header>
             <SiteMap></SiteMap>
