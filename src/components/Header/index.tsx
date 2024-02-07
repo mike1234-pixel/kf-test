@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import logo from "assets/logo.svg";
 import styles from "./Header.module.css";
 import { ReactNode } from "react";
+import { Hamburger } from "components/Hamburger";
 
 export interface HeaderProps {
     children: ReactNode | ReactNode[];
@@ -10,7 +11,7 @@ export interface HeaderProps {
 const Header: React.FunctionComponent<HeaderProps> = ({
     children,
 }: HeaderProps) => {
-    const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
@@ -33,10 +34,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({
     return (
         <nav className={styles.header}>
             <nav className={styles.headerTop}>
-                <img alt="Kraken Flex" height={80} src={logo} />
-                <button onClick={toggleDropdown}>hamburger</button>
+                <img alt="Kraken Flex" height={44} src={logo} />
+                <Hamburger onClick={toggleDropdown} collapse={isDropdownOpen} />
             </nav>
-            <ul className={isDropdownOpen ? styles.show : ""}>{children}</ul>
+            <ul className={isDropdownOpen ? styles.showList : ""}>{children}</ul>
         </nav>
     );
 };

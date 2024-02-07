@@ -1,0 +1,36 @@
+/* w 18px h 12px */
+
+.hamburger-box {
+  width: 18px;
+  height: 12px;
+}
+
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner::before,
+.hamburger.is-active .hamburger-inner::after,
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  background-color: var(--text-white-he);
+}
+
+.hamburger-inner,
+.hamburger-inner::before,
+.hamburger-inner::after {
+  width: 18px;
+  height: 2px;
+  border-radius: 0;
+}
+
+.hamburger--collapse .hamburger-inner::after {
+  top: -5px;
+}
+
+.hamburger--collapse .hamburger-inner::before {
+  bottom: -3px;
+}
+
+.hamburger:hover,
+.hamburger.is-active:hover {
+  opacity: 1;
+}
