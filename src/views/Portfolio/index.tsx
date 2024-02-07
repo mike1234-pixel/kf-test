@@ -4,7 +4,7 @@ import SiteMap from 'components/SiteMap';
 import { siteLinks } from 'constants/siteLinks';
 import { HeaderLink } from 'components/HeaderLink';
 import { useSites } from 'hooks/useSites';
-import styles from './styles/Portfolio.module.scss';
+import styles from './styles/Portfolio.module.css';
 
 export default function Portfolio() {
     const { shell, apiResponse } = styles;
@@ -18,8 +18,8 @@ export default function Portfolio() {
                     siteLinks.map((siteLink) => <HeaderLink key={siteLink.id} siteLink={siteLink} />)
                 }
             </Header>
-            <SiteMap></SiteMap>
-            <SiteList></SiteList>
+            <SiteMap />
+            <SiteList />
             <p>Site API Response</p>
             <pre className={apiResponse}>
                 {JSON.stringify(sites, null, "   ")}

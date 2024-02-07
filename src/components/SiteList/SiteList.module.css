@@ -1,0 +1,35 @@
+.root {
+  margin: 0 44px;
+}
+
+@media (max-width: 767px) {
+  .root {
+    margin: 0 24px;
+  }
+}
+
+.site {
+  padding: 12px 24px;
+  color: var(--text-black-he);
+  display: flex;
+  justify-content: space-between;
+  background: var(--surface);
+  border-radius: var(--border-radius);
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.text h2 {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 0;
+  line-height: 24px;
+}
+
+.text span {
+  font-size: 16px;
+}
