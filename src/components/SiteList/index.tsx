@@ -1,8 +1,14 @@
 import { Service } from 'components/Service';
 import statusIconGood from '../../assets/statusIconGood.svg';
+import { Site } from 'interfaces/Site';
 import styles from './SiteList.module.css';
 
-const SiteList: React.FunctionComponent<{}> = (props) => {
+interface SiteListProps {
+    site: Site;
+}
+
+const SiteList = ({ site }: SiteListProps) => {
+
     return <div className={styles.root}>
         <div className={styles.site}>
             <div className={styles.text}>
@@ -13,8 +19,8 @@ const SiteList: React.FunctionComponent<{}> = (props) => {
                 </div>
             </div>
             <div className={styles.services}>
-                <Service />
-                <Service />
+                <Service service={site.schedules.now} sequence={'now'} />
+                <Service service={site.schedules.next} sequence={'next'} />
             </div>
         </div>
     </div>;

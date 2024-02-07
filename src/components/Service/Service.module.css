@@ -1,0 +1,88 @@
+.root {
+  border-radius: var(--border-radius);
+  background: var(--surface);
+  padding: 8px 16px 8px 22px;
+  min-width: 204px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.root::before {
+  content: "";
+  position: absolute;
+  height: calc(100% - 4px);
+  width: 5px;
+  left: 2px;
+  top: 2px;
+  border-radius: var(--border-radius);
+}
+
+.root p {
+  margin: 0;
+}
+
+.root img {
+  width: 13px;
+}
+
+.sequence {
+  text-transform: uppercase;
+}
+
+.name {
+  font-size: 12px;
+}
+
+/* statuses */
+.dc-high::before {
+  background: var(--dc-high);
+}
+.dc-both::before {
+  background: var(--dc-both);
+}
+.dc-low::before {
+  background: var(--dc-low);
+}
+.dispatch::before {
+  background: var(--dispatch);
+}
+.dfr-dispatch::before {
+  background: var(--dfr-dispatch);
+}
+.dfr-third-party::before {
+  background: var(--dfr-third-party);
+}
+.dfr-dlh::before {
+  background: var(--dfr-dlh);
+}
+.dfr-high::before {
+  background: var(--dfr-high);
+}
+.dfr-both::before {
+  background: var(--dfr-both);
+}
+.dfr-low::before {
+  background: var(--dfr-low);
+}
+.sfr-third-party::before {
+  background: var(--sfr-third-party);
+}
+.sfr-lfs::before {
+  background: var(--sfr-lfs);
+}
+.sfr-high::before {
+  background: var(--sfr-high);
+}
+.sfr-both::before {
+  background: var(--sfr-both);
+}
+.sfr-low::before {
+  background: var(--sfr-low);
+}
+.triad::before {
+  background: var(--triad);
+}
+.unavailable::before {
+  background: var(--unavailable);
+}

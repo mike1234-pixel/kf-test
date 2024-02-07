@@ -33,3 +33,11 @@
 .text span {
   font-size: 16px;
 }
+
+.services {
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  padding: 4px;
+  gap: 4px;
+  display: flex;
+}

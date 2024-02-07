@@ -1,7 +1,7 @@
 import marker from 'assets/marker.svg';
 import markerAlert from 'assets/markerAlert.svg';
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-import { useSites } from 'hooks/useSites';
+import { Site } from 'interfaces/Site';
 import './SiteMapOverrides.css';
 import styles from './SiteMap.module.css';
 
@@ -18,9 +18,11 @@ const getMarkerIcon = (status: string) => {
     }
 };
 
-const SiteMap: React.FunctionComponent<{}> = () => {
+interface SiteMapProps {
+    sites: Site[];
+}
 
-    const { sites } = useSites();
+const SiteMap = ({ sites }: SiteMapProps) => {
 
     // Google Map API loader
     const { isLoaded } = useJsApiLoader({
