@@ -6,7 +6,7 @@ interface HeaderLinkProps {
 }
 
 export const HeaderLink = ({ siteLink }: HeaderLinkProps) => {
-  return <li key={siteLink.id} className={styles.root}>
+  return <li className={styles.root}>
     <a href={siteLink.url} target='_blank' rel='noreferrer'>
       {siteLink.name}
     </a>

@@ -1,0 +1,10 @@
+.root {
+  width: 100%;
+  height: 398px;
+}
+
+@media (max-width: 767px) {
+  .root {
+    height: 272px;
+  }
+}
