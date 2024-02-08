@@ -3,6 +3,7 @@ import statusIconGood from "../../assets/statusIconGood.svg"
 import statusIconAlert from "../../assets/statusIconAlert.svg"
 import { Site } from "interfaces/Site"
 import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
+import { Link } from "react-router-dom"
 import styles from "./SiteList.module.css"
 
 const getStatusIcon = (status: string) => {
@@ -22,7 +23,7 @@ interface SiteListProps {
 
 export const SiteList = ({ site }: SiteListProps) => {
   return (
-    <div className={styles.root}>
+    <Link to={`/site/${site.id}`} className={styles.root}>
       <div className={styles.site}>
         <div className={styles.text}>
           <img src={getStatusIcon(site.status)} alt='status icon' />
@@ -36,6 +37,6 @@ export const SiteList = ({ site }: SiteListProps) => {
           <Service service={site.schedules.next} sequence={"next"} />
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

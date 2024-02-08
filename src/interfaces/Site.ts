@@ -1,3 +1,8 @@
+export interface MapCenter {
+  lat: number
+  lng: number
+}
+
 export interface SiteLink {
   id: string
   url: string

@@ -1,5 +1,14 @@
 .root {
   margin: 0 44px 8px;
+  display: block;
+  text-decoration: none;
+  transition: all 0.2s linear;
+}
+
+.root:hover,
+.root:active,
+.root:focus {
+  transform: scale(1.02);
 }
 
 .site {

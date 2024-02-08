@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import logo from "assets/logo.svg"
-import styles from "./Header.module.css"
 import { ReactNode } from "react"
 import { Hamburger } from "components/Hamburger"
+import { Link } from "react-router-dom"
+import styles from "./Header.module.css"
 
 export interface HeaderProps {
   children: ReactNode | ReactNode[]
@@ -32,7 +33,9 @@ export const Header = ({ children }: HeaderProps) => {
   return (
     <nav className={styles.header}>
       <nav className={styles.headerTop}>
-        <img alt='Kraken Flex' height={44} src={logo} />
+        <Link to='/'>
+          <img alt='Kraken Flex' height={44} src={logo} />
+        </Link>
         <Hamburger onClick={toggleDropdown} collapse={isDropdownOpen} />
       </nav>
       <ul className={isDropdownOpen ? styles.showList : ""}>{children}</ul>

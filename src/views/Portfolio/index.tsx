@@ -1,26 +1,24 @@
-import { siteLinks } from "constants/siteLinks"
-import { HeaderLink } from "components/HeaderLink"
 import { useSites } from "hooks/useSites"
 import { SiteMap } from "components/SiteMap"
 import { SiteList } from "components/SiteList"
-import { Header } from "components/Header"
+import { Layout } from "components/Layout"
 
 export const Portfolio = () => {
-  const { sites } = useSites()
+  const { sites, sitesIsLoading, error } = useSites()
+
+  // TODO: replace loading and error components
+  if (sitesIsLoading) return <p>LOADING</p>
+
+  if (error) return <p>ERROR</p>
 
   return (
-    <div>
-      <Header>
-        {siteLinks.map((siteLink) => (
-          <HeaderLink key={siteLink.id} siteLink={siteLink} />
-        ))}
-      </Header>
-      <SiteMap sites={sites} />
+    <Layout>
+      <SiteMap sites={sites} mapCenter={{ lat: 53.5955752, lng: -1.979958 }} />
       {sites.map((site) => (
         <SiteList site={site} key={site.id} />
       ))}
       <p>Site API Response</p>
       <pre>{JSON.stringify(sites, null, "   ")}</pre>
-    </div>
+    </Layout>
   )
 }

@@ -4,9 +4,23 @@ import { useEffect, useState } from "react"
 
 export const useSites = () => {
   const [sites, setSites] = useState<Array<Site>>([])
+  const [sitesIsLoading, setSitesIsLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
   useEffect(() => {
-    getSites().then(setSites)
+    const fetchData = async () => {
+      try {
+        const data = await getSites()
+        setSites(data)
+      } catch (error) {
+        setError("Could not fetch sites")
+      } finally {
+        setSitesIsLoading(false)
+      }
+    }
+
+    fetchData()
   }, [])
 
-  return { sites }
+  return { sites, sitesIsLoading, error }
 }

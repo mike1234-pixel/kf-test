@@ -1,7 +1,7 @@
 import marker from "assets/marker.svg"
 import markerAlert from "assets/markerAlert.svg"
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
-import { Site } from "interfaces/Site"
+import { MapCenter, Site } from "interfaces/Site"
 import classNames from "classnames"
 import "./SiteMapOverrides.css"
 import styles from "./SiteMap.module.css"
@@ -21,9 +21,10 @@ const getMarkerIcon = (status: string) => {
 
 interface SiteMapProps {
   sites: Site[]
+  mapCenter: MapCenter
 }
 
-export const SiteMap = ({ sites }: SiteMapProps) => {
+export const SiteMap = ({ sites, mapCenter }: SiteMapProps) => {
   // Google Map API loader
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -54,7 +55,7 @@ export const SiteMap = ({ sites }: SiteMapProps) => {
           width: "100%",
           height: "100%",
         }}
-        center={{ lat: 53.5955752, lng: -1.979958 }}
+        center={mapCenter}
         zoom={9}
         options={{
           panControl: false,
