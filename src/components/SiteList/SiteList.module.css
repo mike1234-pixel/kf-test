@@ -1,11 +1,5 @@
 .root {
-  margin: 0 44px;
-}
-
-@media (max-width: 767px) {
-  .root {
-    margin: 0 24px;
-  }
+  margin: 0 44px 8px;
 }
 
 .site {
@@ -25,13 +19,14 @@
 
 .text h2 {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 14px;
   margin: 0;
   line-height: 24px;
 }
 
 .text span {
-  font-size: 16px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .services {
@@ -40,4 +35,21 @@
   padding: 4px;
   gap: 4px;
   display: flex;
+}
+
+@media (max-width: 767px) {
+  .root {
+    margin: 0 24px 8px;
+  }
+  .site,
+  .services {
+    flex-direction: column;
+  }
+  .text {
+    margin-bottom: 24px;
+    justify-content: space-between;
+  }
+  .text img {
+    order: 2;
+  }
 }

@@ -5,6 +5,7 @@
   min-width: 204px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
 }
 
@@ -28,10 +29,13 @@
 
 .sequence {
   text-transform: uppercase;
+  font-size: 10px;
+  line-height: 16px;
 }
 
 .name {
   font-size: 12px;
+  line-height: 16px;
 }
 
 /* statuses */
@@ -59,7 +63,7 @@
 .dfr-high::before {
   background: var(--dfr-high);
 }
-.dfr-both::before {
+.dffr::before {
   background: var(--dfr-both);
 }
 .dfr-low::before {
@@ -85,4 +89,22 @@
 }
 .unavailable::before {
   background: var(--unavailable);
+}
+.no-schedule::before {
+  background: var(--background);
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 16px;
+}
+.startEnd {
+  display: flex;
+  justify-content: space-between;
+}
+.startEnd span:first-of-type {
+  font-weight: bold;
+  margin-bottom: 4px;
 }
