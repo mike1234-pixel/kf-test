@@ -22,9 +22,20 @@ const getMarkerIcon = (status: string) => {
 interface SiteMapProps {
   sites: Site[]
   mapCenter: MapCenter
+  overlay?: boolean
+  name?: string
+  power?: string
+  fullPage?: boolean
 }
 
-export const SiteMap = ({ sites, mapCenter }: SiteMapProps) => {
+export const SiteMap = ({
+  sites,
+  mapCenter,
+  overlay,
+  name,
+  power,
+  fullPage,
+}: SiteMapProps) => {
   // Google Map API loader
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -49,7 +60,17 @@ export const SiteMap = ({ sites, mapCenter }: SiteMapProps) => {
     )
 
   return (
-    <div className={styles.root}>
+    <div
+      className={classNames(
+        styles.root,
+        overlay && styles.overlay,
+        fullPage && styles.fullPage
+      )}
+    >
+      <div className={styles.text}>
+        <h1>{name}</h1>
+        <h2>{power}</h2>
+      </div>
       <GoogleMap
         mapContainerStyle={{
           width: "100%",

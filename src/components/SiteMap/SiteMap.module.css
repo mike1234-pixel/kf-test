@@ -1,7 +1,15 @@
+.root {
+  position: relative;
+}
+
 .root,
 .mapSkeleton {
   width: 100%;
   height: 398px;
+}
+
+.fullPage {
+  height: calc(100vh - 80px); /* exclude header height */
 }
 
 @media (max-width: 767px) {
@@ -9,6 +17,22 @@
   .mapSkeleton {
     height: 272px;
   }
+  .fullPage {
+    height: calc(100vh - 80px);
+  }
+}
+
+.overlay::after {
+  content: "";
+  pointer-events: none;
+  box-sizing: border-box;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+  top: 0;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .skeletonEffect {
@@ -39,5 +63,37 @@
 @keyframes shimmer {
   100% {
     transform: translateX(100%);
+  }
+}
+
+.text {
+  position: absolute;
+  color: var(--text-white-he);
+  top: 44px;
+  left: 44px;
+  z-index: 1;
+}
+
+.text h1 {
+  font-size: 34px;
+  line-height: 36px;
+  margin: 0;
+}
+
+.text h2 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .text h1 {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .text h2 {
+    font-size: 14px;
+    line-height: 24px;
   }
 }
