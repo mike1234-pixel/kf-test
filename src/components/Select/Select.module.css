@@ -45,6 +45,7 @@
 
 .selectOpen::after {
   transform: rotate(180deg);
+  top: calc(50% - 4px);
 }
 
 .selectedOption {

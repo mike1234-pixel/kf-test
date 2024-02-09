@@ -17,3 +17,5 @@ I have returned data from custom hooks, along with loading and error states whic
 ## Styling
 
 I have used plain CSS to demonstrate my skills in the fundamentals. I have chosen CSS Modules as this helps in scoping CSS in frameworks like React.
+
+The app is responsive down to 220px width screens.
