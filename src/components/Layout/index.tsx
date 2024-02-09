@@ -13,7 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header>
         <ul className={styles.navLinkList}>
           {navLinks.map((navLink) => (
-            <li className={styles.navLinkListItem}>
+            <li className={styles.navLinkListItem} key={navLink.id}>
               <a href={navLink.url} target='_blank' rel='noreferrer'>
                 {navLink.name}
               </a>

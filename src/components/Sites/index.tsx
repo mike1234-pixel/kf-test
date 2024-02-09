@@ -2,13 +2,15 @@ import { useState } from "react"
 import { SiteI } from "interfaces/Site"
 import { SiteList } from "components/SiteList"
 import { Select } from "components/Select"
+import { SiteListSkeleton } from "components/SiteListSkeleton"
 import styles from "./Sites.module.css"
 
 interface SitesProps {
   sites: SiteI[]
+  loading?: boolean
 }
 
-export const Sites = ({ sites }: SitesProps) => {
+export const Sites = ({ sites, loading }: SitesProps) => {
   const [sortBy, setSortBy] = useState<string>("name")
   const [isSortSelectOpen, setIsSortSelectOpen] = useState<boolean>(false)
 
@@ -36,16 +38,22 @@ export const Sites = ({ sites }: SitesProps) => {
         setIsOpen={setIsSortSelectOpen}
         handleChange={handleSortChange}
         labelText='Sort By'
+        loading={loading}
       />
       <div>
         <ul className={styles.list}>
-          {sortedData.map((item) => {
-            return (
-              <li key={item.id} className={styles.listItem}>
-                <SiteList site={item} />
-              </li>
-            )
-          })}
+          {loading &&
+            Array.from({ length: 4 }).map((_, index) => (
+              <SiteListSkeleton key={index} />
+            ))}
+          {!loading &&
+            sortedData.map((item) => {
+              return (
+                <li key={item.id} className={styles.listItem}>
+                  <SiteList site={item} />
+                </li>
+              )
+            })}
         </ul>
       </div>
     </div>

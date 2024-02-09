@@ -9,6 +9,7 @@ interface SelectProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>
   handleChange: (option: string) => void
   labelText: string
+  loading?: boolean
 }
 
 export const Select = ({
@@ -18,11 +19,12 @@ export const Select = ({
   setIsOpen,
   handleChange,
   labelText,
+  loading,
 }: SelectProps) => {
   return (
     <div className={styles.selectBox}>
       <div id='label' className={styles.label}>
-        {labelText}
+        {!loading && labelText}
       </div>
       <div
         className={classNames(styles.select, isOpen && styles.selectOpen)}
@@ -34,7 +36,7 @@ export const Select = ({
           className={styles.selectedOption}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {sortBy}
+          {!loading ? sortBy : <div className={styles.placeholder}></div>}
         </div>
         {isOpen && (
           <div className={styles.dropdownMenu}>

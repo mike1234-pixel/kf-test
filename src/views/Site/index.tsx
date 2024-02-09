@@ -8,14 +8,12 @@ import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
 export const Site = () => {
   const { id } = useParams()
 
-  const { site, siteIsLoading, error } = useSite(id || "")
-
-  if (siteIsLoading) return <p>LOADING</p>
+  const { site, error } = useSite(id || "")
 
   if (error)
     return (
       <Layout>
-        <ErrorMessage />
+        <ErrorMessage message={error} />
       </Layout>
     )
 

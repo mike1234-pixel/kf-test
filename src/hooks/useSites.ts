@@ -8,6 +8,8 @@ export const useSites = () => {
   const [sitesIsLoading, setSitesIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
+  console.log(sitesIsLoading)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,7 +18,9 @@ export const useSites = () => {
       } catch (error) {
         setError("Could not fetch sites")
       } finally {
-        setSitesIsLoading(false)
+        setTimeout(() => {
+          setSitesIsLoading(false)
+        }, 1000)
       }
     }
 
