@@ -35,6 +35,7 @@ export const SiteList = ({ sites }: SortProps) => {
         sortBy={sortBy}
         setIsOpen={setIsSortSelectOpen}
         handleChange={handleSortChange}
+        labelText='Sort By'
       />
       <div>
         <ul className={styles.list}>

@@ -8,6 +8,7 @@ interface SelectProps {
   sortBy: string
   setIsOpen: Dispatch<SetStateAction<boolean>>
   handleChange: (option: string) => void
+  labelText: string
 }
 
 export const Select = ({
@@ -16,11 +17,12 @@ export const Select = ({
   sortBy,
   setIsOpen,
   handleChange,
+  labelText,
 }: SelectProps) => {
   return (
     <div className={styles.selectBox}>
       <div id='label' className={styles.label}>
-        Sort By
+        {labelText}
       </div>
       <div
         className={classNames(styles.select, isOpen && styles.selectOpen)}

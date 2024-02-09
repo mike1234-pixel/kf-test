@@ -1,6 +1,6 @@
-import { SiteLink } from "interfaces/Site"
+import { NavLink } from "interfaces/Site"
 
-export const siteLinks: SiteLink[] = [
+export const navLinks: NavLink[] = [
   {
     id: "c9ad9ef0-8773-4f64-8b7a-8d69be0b49d0",
     url: "https://www.krakenflex.com/",

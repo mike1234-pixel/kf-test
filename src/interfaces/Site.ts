@@ -3,7 +3,7 @@ export interface MapCenter {
   lng: number
 }
 
-export interface SiteLink {
+export interface NavLink {
   id: string
   url: string
   name: string
