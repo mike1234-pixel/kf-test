@@ -1,53 +1,42 @@
-import { useState } from "react"
+import { Service } from "components/Service"
+import statusIconGood from "../../assets/statusIconGood.svg"
+import statusIconAlert from "../../assets/statusIconAlert.svg"
 import { SiteI } from "interfaces/Site"
-import { Site } from "components/Site"
+import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
+import { Link } from "react-router-dom"
 import styles from "./SiteList.module.css"
-import { Select } from "components/Select"
 
-interface SortProps {
-  sites: SiteI[]
+const getStatusIcon = (status: string) => {
+  switch (status.toLowerCase()) {
+    case "good":
+      return statusIconGood
+    case "alert":
+      return statusIconAlert
+    default:
+      return statusIconGood
+  }
 }
 
-export const SiteList = ({ sites }: SortProps) => {
-  const [sortBy, setSortBy] = useState<string>("name")
-  const [isSortSelectOpen, setIsSortSelectOpen] = useState<boolean>(false)
+interface SiteListProps {
+  site: SiteI
+}
 
-  const sortedData = [...sites].sort((a, b) => {
-    if (sortBy === "name") {
-      return a.name.localeCompare(b.name)
-    }
-    if (sortBy === "size") {
-      return a.power - b.power
-    }
-    return 0
-  })
-
-  const handleSortChange = (option: string) => {
-    setSortBy(option)
-    setIsSortSelectOpen(false)
-  }
-
+export const SiteList = ({ site }: SiteListProps) => {
   return (
-    <div className={styles.root}>
-      <Select
-        options={["name", "size"]}
-        isOpen={isSortSelectOpen}
-        sortBy={sortBy}
-        setIsOpen={setIsSortSelectOpen}
-        handleChange={handleSortChange}
-        labelText='Sort By'
-      />
-      <div>
-        <ul className={styles.list}>
-          {sortedData.map((item) => {
-            return (
-              <li key={item.id} className={styles.listItem}>
-                <Site site={item} />
-              </li>
-            )
-          })}
-        </ul>
+    <Link to={`/site/${site.id}`} className={styles.root}>
+      <div className={styles.site}>
+        <div className={styles.text}>
+          <img src={getStatusIcon(site.status)} alt='status icon' />
+          <div>
+            <h2>{site.name}</h2>
+            <span>{convertWattsToMegawatts(site.power)}</span>
+          </div>
+        </div>
+        <div className={styles.services}>
+          <Service service={site.schedules.now} sequence={"now"} />
+          <Service service={site.schedules.next} sequence={"next"} />
+        </div>
       </div>
-    </div>
+    </Link>
   )
 }

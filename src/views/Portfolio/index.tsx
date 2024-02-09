@@ -1,7 +1,7 @@
 import { useSites } from "hooks/useSites"
 import { SiteMap } from "components/SiteMap"
 import { Layout } from "components/Layout"
-import { SiteList } from "components/SiteList"
+import { Sites } from "components/Sites"
 import { ErrorMessage } from "components/ErrorMessage"
 
 export const Portfolio = () => {
@@ -19,7 +19,7 @@ export const Portfolio = () => {
   return (
     <Layout>
       <SiteMap sites={sites} mapCenter={{ lat: 53.5955752, lng: -1.979958 }} />
-      <SiteList sites={sites} />
+      <Sites sites={sites} />
     </Layout>
   )
 }
