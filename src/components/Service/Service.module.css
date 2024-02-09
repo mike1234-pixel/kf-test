@@ -2,7 +2,6 @@
   border-radius: var(--border-radius);
   background: var(--surface);
   padding: 8px 16px 8px 22px;
-  min-width: 204px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,4 +106,10 @@
 .startEnd span:first-of-type {
   font-weight: bold;
   margin-bottom: 4px;
+}
+
+@media (min-width: 768px) {
+  .root {
+    min-width: 204px;
+  }
 }

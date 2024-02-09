@@ -10,7 +10,6 @@ export const Site = () => {
 
   const { site, siteIsLoading, error } = useSite(id || "")
 
-  // TODO: replace loading and error components
   if (siteIsLoading) return <p>LOADING</p>
 
   if (error)

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { SiteI } from "interfaces/Site"
 import { Site } from "components/Site"
 import styles from "./SiteList.module.css"
-import { SortSelect } from "components/SortSelect"
+import { Select } from "components/Select"
 
 interface SortProps {
   sites: SiteI[]
@@ -29,12 +29,12 @@ export const SiteList = ({ sites }: SortProps) => {
 
   return (
     <div className={styles.root}>
-      <SortSelect
+      <Select
         options={["name", "size"]}
         isOpen={isSortSelectOpen}
         sortBy={sortBy}
         setIsOpen={setIsSortSelectOpen}
-        handleSortChange={handleSortChange}
+        handleChange={handleSortChange}
       />
       <div>
         <ul className={styles.list}>

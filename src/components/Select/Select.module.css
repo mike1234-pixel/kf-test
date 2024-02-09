@@ -2,11 +2,11 @@
   padding: 20px 24px;
   position: relative;
   background-color: var(--background);
-  width: fit-content;
   border-top-right-radius: var(--border-radius);
   border-top-left-radius: var(--border-radius);
   box-shadow: var(--box-shadow-light);
   margin-top: 2px;
+  width: fit-content;
   text-transform: capitalize;
 }
 
@@ -27,6 +27,24 @@
   font-size: 14px;
   line-height: 24px;
   width: 232px;
+}
+
+.select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 19px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  border-color: var(--text-black-he) transparent transparent;
+  transform: translateY(-50%) rotate(0deg);
+  transform-origin: center center;
+}
+
+.selectOpen::after {
+  transform: rotate(180deg);
 }
 
 .selectedOption {
@@ -64,5 +82,19 @@
 @media (max-width: 767px) {
   .selectBox {
     margin-top: -40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .selectBox,
+  .select {
+    width: 100%;
+  }
+  .selectBox {
+    padding: 0;
+  }
+  .label {
+    top: -7px;
+    left: 14px;
   }
 }

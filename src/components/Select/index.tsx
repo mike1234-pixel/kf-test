@@ -1,28 +1,29 @@
 import { Dispatch, SetStateAction } from "react"
-import styles from "./SortSelect.module.css"
+import classNames from "classnames"
+import styles from "./Select.module.css"
 
-interface SortSelectProps {
+interface SelectProps {
   options: string[]
   isOpen: boolean
   sortBy: string
   setIsOpen: Dispatch<SetStateAction<boolean>>
-  handleSortChange: (option: string) => void
+  handleChange: (option: string) => void
 }
 
-export const SortSelect = ({
+export const Select = ({
   options,
   isOpen,
   sortBy,
   setIsOpen,
-  handleSortChange,
-}: SortSelectProps) => {
+  handleChange,
+}: SelectProps) => {
   return (
     <div className={styles.selectBox}>
       <div id='label' className={styles.label}>
         Sort By
       </div>
       <div
-        className={styles.select}
+        className={classNames(styles.select, isOpen && styles.selectOpen)}
         role='listbox'
         aria-expanded={isOpen}
         aria-labelledby='label'
@@ -36,7 +37,7 @@ export const SortSelect = ({
         {isOpen && (
           <div className={styles.dropdownMenu}>
             {options.map((option) => (
-              <div key={option} onClick={() => handleSortChange(option)}>
+              <div key={option} onClick={() => handleChange(option)}>
                 {option}
               </div>
             ))}

@@ -7,7 +7,6 @@ import { ErrorMessage } from "components/ErrorMessage"
 export const Portfolio = () => {
   const { sites, sitesIsLoading, error } = useSites()
 
-  // TODO: replace loading and error components
   if (sitesIsLoading) return <p>LOADING</p>
 
   if (error)
