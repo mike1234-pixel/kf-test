@@ -1,7 +1,7 @@
 import { Service } from "components/Service"
 import statusIconGood from "../../assets/statusIconGood.svg"
 import statusIconAlert from "../../assets/statusIconAlert.svg"
-import { Site as SiteI } from "interfaces/Site"
+import { SiteI } from "interfaces/Site"
 import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
 import { Link } from "react-router-dom"
 import styles from "./Site.module.css"

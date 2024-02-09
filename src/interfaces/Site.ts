@@ -15,7 +15,7 @@ export interface SiteService {
   end: string
 }
 
-export interface Site {
+export interface SiteI {
   id: string
   name: string
   power: number

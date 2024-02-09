@@ -1,7 +1,7 @@
 import marker from "assets/marker.svg"
 import markerAlert from "assets/markerAlert.svg"
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
-import { MapCenter, Site } from "interfaces/Site"
+import { MapCenter, SiteI } from "interfaces/Site"
 import classNames from "classnames"
 import "./SiteMapOverrides.css"
 import styles from "./SiteMap.module.css"
@@ -20,7 +20,7 @@ const getMarkerIcon = (status: string) => {
 }
 
 interface SiteMapProps {
-  sites: Site[]
+  sites: SiteI[]
   mapCenter: MapCenter
   overlay?: boolean
   name?: string

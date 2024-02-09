@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Site as SiteI } from "interfaces/Site"
+import { SiteI } from "interfaces/Site"
 import { Site } from "components/Site"
 import styles from "./SiteList.module.css"
 
@@ -8,7 +8,6 @@ interface SortProps {
 }
 
 export const SiteList = ({ data }: SortProps) => {
-  console.log(data)
   const [sortBy, setSortBy] = useState<string>("name")
   const [isOpen, setIsOpen] = useState<boolean>(false)
 

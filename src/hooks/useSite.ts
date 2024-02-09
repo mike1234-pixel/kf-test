@@ -1,10 +1,10 @@
 // in real life I would use react-query, mimicking basic react-query state management here...
 import { getSite } from "api/sites"
-import { Site } from "interfaces/Site"
+import { SiteI } from "interfaces/Site"
 import { useEffect, useState } from "react"
 
 export const useSite = (siteId: string) => {
-  const [site, setSite] = useState<Site | undefined>(undefined)
+  const [site, setSite] = useState<SiteI | undefined>(undefined)
   const [siteIsLoading, setSiteIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
