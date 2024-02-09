@@ -9,7 +9,7 @@
 }
 
 .fullPage {
-  height: calc(100vh - 80px); /* exclude header height */
+  height: var(--full-page-height-minus-header-height);
 }
 
 @media (max-width: 767px) {
@@ -18,7 +18,7 @@
     height: 272px;
   }
   .fullPage {
-    height: calc(100vh - 80px);
+    height: var(--full-page-height-minus-header-height);
   }
 }
 

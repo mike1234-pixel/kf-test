@@ -1,3 +1,4 @@
+import { ErrorMessage } from "components/ErrorMessage"
 import { Layout } from "components/Layout"
 import { SiteMap } from "components/SiteMap"
 import { useSite } from "hooks/useSite"
@@ -12,7 +13,12 @@ export const Site = () => {
   // TODO: replace loading and error components
   if (siteIsLoading) return <p>LOADING</p>
 
-  if (error) return <p>ERROR</p>
+  if (error)
+    return (
+      <Layout>
+        <ErrorMessage />
+      </Layout>
+    )
 
   return (
     <Layout>

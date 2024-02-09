@@ -1,0 +1,11 @@
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--full-page-height-minus-header-height);
+  width: 100%;
+}
+
+.error img {
+  margin-right: 20px;
+}
