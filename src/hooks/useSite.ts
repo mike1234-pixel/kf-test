@@ -1,3 +1,4 @@
+// in real life I would use react-query, mimicking basic react-query state management here...
 import { getSite } from "api/sites"
 import { Site } from "interfaces/Site"
 import { useEffect, useState } from "react"

@@ -3,6 +3,7 @@ import logo from "assets/logo.svg"
 import { ReactNode } from "react"
 import { Hamburger } from "components/Hamburger"
 import { Link } from "react-router-dom"
+import classNames from "classnames"
 import styles from "./Header.module.css"
 
 export interface HeaderProps {
@@ -38,7 +39,11 @@ export const Header = ({ children }: HeaderProps) => {
         </Link>
         <Hamburger onClick={toggleDropdown} collapse={isDropdownOpen} />
       </nav>
-      <ul className={isDropdownOpen ? styles.showList : ""}>{children}</ul>
+      <ul
+        className={classNames(styles.list, isDropdownOpen && styles.showList)}
+      >
+        {children}
+      </ul>
     </nav>
   )
 }

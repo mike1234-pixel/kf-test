@@ -1,3 +1,4 @@
 :root {
   --border-radius: 5px;
+  --box-shadow-light: 0px -5px 5px rgba(0, 0, 0, 0.03);
 }

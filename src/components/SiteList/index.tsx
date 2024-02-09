@@ -1,42 +1,68 @@
-import { Service } from "components/Service"
-import statusIconGood from "../../assets/statusIconGood.svg"
-import statusIconAlert from "../../assets/statusIconAlert.svg"
-import { Site } from "interfaces/Site"
-import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
-import { Link } from "react-router-dom"
+import { useState } from "react"
+import { Site as SiteI } from "interfaces/Site"
+import { Site } from "components/Site"
 import styles from "./SiteList.module.css"
 
-const getStatusIcon = (status: string) => {
-  switch (status.toLowerCase()) {
-    case "good":
-      return statusIconGood
-    case "alert":
-      return statusIconAlert
-    default:
-      return statusIconGood
+interface SortProps {
+  data: SiteI[]
+}
+
+export const SiteList = ({ data }: SortProps) => {
+  console.log(data)
+  const [sortBy, setSortBy] = useState<string>("name")
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const sortedData = [...data].sort((a, b) => {
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name)
+    } else if (sortBy === "size") {
+      return a.power - b.power
+    }
+    return 0
+  })
+
+  const handleSortChange = (option: string) => {
+    setSortBy(option)
+    setIsOpen(false)
   }
-}
 
-interface SiteListProps {
-  site: Site
-}
-
-export const SiteList = ({ site }: SiteListProps) => {
   return (
-    <Link to={`/site/${site.id}`} className={styles.root}>
-      <div className={styles.site}>
-        <div className={styles.text}>
-          <img src={getStatusIcon(site.status)} alt='status icon' />
-          <div>
-            <h2>{site.name}</h2>
-            <span>{convertWattsToMegawatts(site.power)}</span>
-          </div>
+    <div className={styles.root}>
+      <div className={styles.selectBox}>
+        <div id='label' className={styles.label}>
+          Sort By
         </div>
-        <div className={styles.services}>
-          <Service service={site.schedules.now} sequence={"now"} />
-          <Service service={site.schedules.next} sequence={"next"} />
+        <div
+          className={styles.select}
+          role='listbox'
+          aria-expanded={isOpen}
+          aria-labelledby='label'
+        >
+          <div
+            className={styles.selectedOption}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {sortBy}
+          </div>
+          {isOpen && (
+            <div className={styles.dropdownMenu}>
+              <div onClick={() => handleSortChange("name")}>Name</div>
+              <div onClick={() => handleSortChange("size")}>Size</div>
+            </div>
+          )}
         </div>
       </div>
-    </Link>
+      <div>
+        <ul className={styles.list}>
+          {sortedData.map((item) => {
+            return (
+              <li key={item.id} className={styles.listItem}>
+                <Site site={item} />
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
   )
 }

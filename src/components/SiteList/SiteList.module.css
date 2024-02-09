@@ -1,64 +1,81 @@
 .root {
-  margin: 0 44px 8px;
-  display: block;
-  text-decoration: none;
-  transition: all 0.2s linear;
+  padding: 0 44px;
 }
 
-.root:hover,
-.root:active,
-.root:focus {
-  transform: scale(1.02);
+.selectBox {
+  padding: 20px 24px;
+  position: relative;
+  background-color: var(--background);
+  width: fit-content;
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-light);
+  margin-top: 2px;
 }
 
-.site {
-  padding: 12px 24px;
-  color: var(--text-black-he);
-  display: flex;
-  justify-content: space-between;
-  background: var(--surface);
-  border-radius: var(--border-radius);
-}
-
-.text {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.text h2 {
-  font-weight: bold;
-  font-size: 14px;
-  margin: 0;
-  line-height: 24px;
-}
-
-.text span {
+.label {
+  position: absolute;
+  background-color: var(--background);
+  color: var(--text-black-le);
   font-size: 12px;
   line-height: 16px;
+  top: 12px;
+  left: 40px;
+  z-index: 11;
+  padding: 0 4px;
 }
 
-.services {
-  background-color: var(--background);
+.select {
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  width: 232px;
+}
+
+.selectedOption {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
   border-radius: var(--border-radius);
-  padding: 4px;
-  gap: 4px;
-  display: flex;
+  text-transform: capitalize;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid var(--overlay-black-24);
+  border-top: none;
+  border-radius: var(--border-radius);
+  background-color: var(--surface);
+  box-shadow: var(--box-shadow-light);
+  z-index: 10;
+  padding: 8px 0;
+  font-size: 16px;
+}
+
+.dropdownMenu div {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdownMenu div:hover {
+  background-color: var(--background);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
 }
 
 @media (max-width: 767px) {
   .root {
-    margin: 0 24px 8px;
+    padding: 0 24px;
   }
-  .site,
-  .services {
-    flex-direction: column;
-  }
-  .text {
-    margin-bottom: 24px;
-    justify-content: space-between;
-  }
-  .text img {
-    order: 2;
+  .selectBox {
+    margin-top: -40px;
   }
 }
