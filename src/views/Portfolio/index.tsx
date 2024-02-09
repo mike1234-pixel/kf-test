@@ -14,7 +14,7 @@ export const Portfolio = () => {
   return (
     <Layout>
       <SiteMap sites={sites} mapCenter={{ lat: 53.5955752, lng: -1.979958 }} />
-      <SiteList data={sites} />
+      <SiteList sites={sites} />
       {/* <p>Site API Response</p>
       <pre>{JSON.stringify(sites, null, "   ")}</pre> */}
     </Layout>
