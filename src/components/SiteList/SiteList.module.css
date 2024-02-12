@@ -38,6 +38,26 @@
   line-height: 16px;
 }
 
+.statusIcon {
+  width: 20px;
+}
+
+.statusGoodIcon {
+  color: var(--status-good);
+}
+
+.statusAlertIcon {
+  color: var(--status-alert);
+}
+
+.statusWarningIcon {
+  color: var(--status-warning);
+}
+
+.statusUnknownIcon {
+  color: var(--status-unknown);
+}
+
 .services {
   background-color: var(--background);
   border-radius: var(--border-radius);
@@ -55,7 +75,7 @@
     margin-bottom: 24px;
     justify-content: space-between;
   }
-  .text img {
+  .text svg {
     order: 2;
   }
   .site {

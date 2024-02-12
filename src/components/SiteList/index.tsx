@@ -1,22 +1,10 @@
 import { MouseEvent } from "react"
 import { Link } from "react-router-dom"
 import { Service } from "components/Service"
-import statusIconGood from "../../assets/statusIconGood.svg"
-import statusIconAlert from "../../assets/statusIconAlert.svg"
 import { SiteI } from "interfaces/Site"
 import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
+import { getStatusIcon } from "./getStatusIcon"
 import styles from "./SiteList.module.css"
-
-const getStatusIcon = (status: string) => {
-  switch (status.toLowerCase()) {
-    case "good":
-      return statusIconGood
-    case "alert":
-      return statusIconAlert
-    default:
-      return statusIconGood
-  }
-}
 
 interface SiteListProps {
   site: SiteI
@@ -38,7 +26,7 @@ export const SiteList = ({ site }: SiteListProps) => {
     >
       <div className={styles.site}>
         <div className={styles.text}>
-          <img src={getStatusIcon(site.status)} alt='status icon' />
+          {getStatusIcon(site.status)}
           <div>
             <h2>{site.name}</h2>
             <span>{convertWattsToMegawatts(site.power)}</span>

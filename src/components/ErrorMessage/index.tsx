@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import errorIcon from "../../assets/statusIconAlert.svg"
+import ErrorIcon from "@mui/icons-material/Error"
 import styles from "./Error.module.css"
 
 interface ErrorMessageProps {
@@ -9,7 +9,7 @@ interface ErrorMessageProps {
 export const ErrorMessage = ({ message }: ErrorMessageProps) => {
   return (
     <div className={styles.error}>
-      <img src={errorIcon} alt='error icon' />
+      <ErrorIcon className={styles.errorIcon} />
       <p>
         {message ?? "Oops! Something went wrong."} Please{" "}
         <Link to='/'>try again</Link>.

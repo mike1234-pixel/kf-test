@@ -1,24 +1,12 @@
-import marker from "assets/marker.svg"
-import markerAlert from "assets/markerAlert.svg"
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
 import { MapCenter, SiteI } from "interfaces/Site"
 import classNames from "classnames"
 import styles from "./SiteMap.module.css"
 import { useNavigate } from "react-router"
+import { getMarkerIcon } from "./markerIcon"
 import "./SiteMapOverrides.css"
 
 const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-
-const getMarkerIcon = (status: string) => {
-  switch (status.toLowerCase()) {
-    case "good":
-      return marker
-    case "alert":
-      return markerAlert
-    default:
-      return marker
-  }
-}
 
 interface SiteMapProps {
   sites: SiteI[]
