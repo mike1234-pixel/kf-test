@@ -10,7 +10,7 @@
   padding: 12px;
   position: absolute;
   z-index: 1;
-  bottom: calc(-100% - 4px);
+  bottom: -100%;
   right: calc(100% + 10px);
   transition: opacity 0.3s;
   visibility: hidden;

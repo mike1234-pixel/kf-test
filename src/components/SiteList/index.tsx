@@ -24,7 +24,7 @@ interface SiteListProps {
 
 export const SiteList = ({ site }: SiteListProps) => {
   const handleLinkClick = (e: MouseEvent) => {
-    if ((e.target as HTMLElement).tagName === "IMG") {
+    if ((e.target as HTMLElement).getAttribute("data-clock-icon")) {
       // hover not available on mobile - allow user to see tooltip on icon click
       e.preventDefault()
     }

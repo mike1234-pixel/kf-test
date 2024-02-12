@@ -9,7 +9,7 @@ import styles from "./Site.module.css"
 export const Site = () => {
   const { id } = useParams()
 
-  const { site, siteIsLoading, error } = useSite(id || "")
+  const { site, siteIsLoading, error } = useSite(id as string)
 
   if (error)
     return (
@@ -18,9 +18,16 @@ export const Site = () => {
       </Layout>
     )
 
+  if (siteIsLoading && !site) {
+    return (
+      <Layout>
+        <div className={styles.siteLoading}></div>
+      </Layout>
+    )
+  }
+
   return (
     <Layout>
-      {siteIsLoading && <div className={styles.siteLoading}></div>}
       {site && (
         <SiteMap
           sites={[site]}

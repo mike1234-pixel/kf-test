@@ -1,5 +1,5 @@
 import { SiteService } from "interfaces/Site"
-import clock from "../../assets/clock.svg"
+import AccessTimeIcon from "@mui/icons-material/AccessTime"
 import classNames from "classnames"
 import { Tooltip } from "components/Tooltip"
 import dayjs from "dayjs"
@@ -34,7 +34,9 @@ export const Service = ({ service, sequence }: ServiceProps) => {
           </div>
         }
       >
-        <img src={clock} alt='clock icon' />
+        <span className={styles.timeIcon}>
+          <AccessTimeIcon data-clock-icon />
+        </span>
       </Tooltip>
     </div>
   )

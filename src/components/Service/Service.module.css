@@ -22,10 +22,6 @@
   margin: 0;
 }
 
-.root img {
-  width: 13px;
-}
-
 .sequence {
   text-transform: uppercase;
   font-size: 10px;
@@ -93,16 +89,25 @@
   background: var(--background);
 }
 
+.timeIcon svg {
+  color: var(--overlay-black-24);
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+}
+
 .times {
   display: flex;
   flex-direction: column;
   font-size: 12px;
   line-height: 16px;
 }
+
 .startEnd {
   display: flex;
   justify-content: space-between;
 }
+
 .startEnd span:first-of-type {
   font-weight: bold;
   margin-bottom: 4px;
