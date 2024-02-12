@@ -3,7 +3,7 @@ import { MapCenter, SiteI } from "interfaces/Site"
 import classNames from "classnames"
 import styles from "./SiteMap.module.css"
 import { useNavigate } from "react-router"
-import { getMarkerIcon } from "./markerIcon"
+import { getMarkerIcon } from "./getMarkerIcon"
 import "./SiteMapOverrides.css"
 
 const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
