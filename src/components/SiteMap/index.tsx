@@ -3,8 +3,9 @@ import markerAlert from "assets/markerAlert.svg"
 import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api"
 import { MapCenter, SiteI } from "interfaces/Site"
 import classNames from "classnames"
-import "./SiteMapOverrides.css"
 import styles from "./SiteMap.module.css"
+import { useNavigate } from "react-router"
+import "./SiteMapOverrides.css"
 
 const googleMapsApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
@@ -26,6 +27,7 @@ interface SiteMapProps {
   name?: string
   power?: string
   fullPage?: boolean
+  navigateOnMarkerClick?: boolean
 }
 
 export const SiteMap = ({
@@ -35,12 +37,19 @@ export const SiteMap = ({
   name,
   power,
   fullPage,
+  navigateOnMarkerClick = false,
 }: SiteMapProps) => {
+  const navigate = useNavigate()
+
   // Google Map API loader
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey,
   } as any)
+
+  const handleMarkerClick = (siteId: string) => {
+    navigateOnMarkerClick && navigate(`/site/${siteId}`)
+  }
 
   const markers = sites.map((site) => {
     return (
@@ -48,16 +57,12 @@ export const SiteMap = ({
         key={site.id}
         position={{ lat: site.location.lat, lng: site.location.lng }}
         icon={getMarkerIcon(site.status)}
+        onClick={() => handleMarkerClick(site.id)}
       />
     )
   })
 
-  if (!isLoaded)
-    return (
-      <div
-        className={classNames(styles.skeletonEffect, styles.mapSkeleton)}
-      ></div>
-    )
+  if (!isLoaded) return <div className={styles.mapSkeleton}></div>
 
   return (
     <div

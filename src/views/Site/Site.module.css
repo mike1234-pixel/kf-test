@@ -1,0 +1,5 @@
+.siteLoading {
+  height: var(--full-page-height-minus-header-height);
+  width: 100%;
+  background: var(--overlay-black-04);
+}

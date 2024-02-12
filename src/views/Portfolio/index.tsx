@@ -16,7 +16,11 @@ export const Portfolio = () => {
 
   return (
     <Layout>
-      <SiteMap sites={sites} mapCenter={{ lat: 53.5955752, lng: -1.979958 }} />
+      <SiteMap
+        sites={sites}
+        mapCenter={{ lat: 53.5955752, lng: -1.979958 }}
+        navigateOnMarkerClick
+      />
       <Sites sites={sites} loading={sitesIsLoading} />
     </Layout>
   )

@@ -4,11 +4,12 @@ import { SiteMap } from "components/SiteMap"
 import { useSite } from "hooks/useSite"
 import { useParams } from "react-router-dom"
 import { convertWattsToMegawatts } from "utils/convertWattsToMegawatts"
+import styles from "./Site.module.css"
 
 export const Site = () => {
   const { id } = useParams()
 
-  const { site, error } = useSite(id || "")
+  const { site, siteIsLoading, error } = useSite(id || "")
 
   if (error)
     return (
@@ -19,6 +20,7 @@ export const Site = () => {
 
   return (
     <Layout>
+      {siteIsLoading && <div className={styles.siteLoading}></div>}
       {site && (
         <SiteMap
           sites={[site]}

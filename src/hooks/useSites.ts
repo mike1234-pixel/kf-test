@@ -8,8 +8,6 @@ export const useSites = () => {
   const [sitesIsLoading, setSitesIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
-  console.log(sitesIsLoading)
-
   useEffect(() => {
     const fetchData = async () => {
       try {

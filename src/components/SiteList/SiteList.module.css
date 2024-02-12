@@ -58,4 +58,7 @@
   .text img {
     order: 2;
   }
+  .site {
+    padding: 24px;
+  }
 }

@@ -16,7 +16,9 @@ export const useSite = (siteId: string) => {
       } catch (error) {
         setError("Could not fetch site")
       } finally {
-        setSiteIsLoading(false)
+        setTimeout(() => {
+          setSiteIsLoading(false)
+        }, 200)
       }
     }
 

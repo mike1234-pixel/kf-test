@@ -8,6 +8,10 @@
   height: 398px;
 }
 
+.mapSkeleton {
+  background: var(--overlay-black-04);
+}
+
 .fullPage {
   height: var(--full-page-height-minus-header-height);
 }
@@ -33,37 +37,6 @@
   top: 0;
   background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.skeletonEffect {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  background-color: #dddbdd;
-}
-
-.skeletonEffect::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-100%);
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0,
-    rgba(255, 255, 255, 0.2) 20%,
-    rgba(255, 255, 255, 0.5) 60%,
-    rgba(255, 255, 255, 0)
-  );
-  animation: shimmer 5s infinite;
-  content: "";
-}
-
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
 }
 
 .text {
