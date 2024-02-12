@@ -12,11 +12,11 @@ The project is built with React and TypeScript.
 
 ## Data
 
-I have returned data from custom hooks, along with loading and error states which mimic React Query. In a real-world scenario I would use this library, but I have followed its patterns here.
+I have returned data from custom hooks, along with loading and error states which mimic React Query. This is how I would handle data fetching and state management in a real world scenario.
 
 ## Styling
 
-I have used plain CSS to demonstrate my skills in the fundamentals. I have chosen CSS Modules as this helps in scoping CSS in frameworks like React.
+I have used plain CSS to demonstrate my skills in the fundamentals and for more control to achieve a more pixel perfect implementation. I have chosen CSS Modules as this helps in scoping CSS in frameworks like React.
 
 The app is responsive down to 220px width screens.
 

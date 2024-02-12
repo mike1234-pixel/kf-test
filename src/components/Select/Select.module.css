@@ -8,6 +8,7 @@
   margin-top: 2px;
   width: fit-content;
   text-transform: capitalize;
+  box-sizing: border-box;
 }
 
 .label {
@@ -91,18 +92,8 @@
   .selectBox {
     margin-top: -40px;
   }
-}
-
-@media (max-width: 360px) {
-  .selectBox,
-  .select {
-    width: 100%;
-  }
+  .select,
   .selectBox {
-    padding: 0;
-  }
-  .label {
-    top: -7px;
-    left: 14px;
+    width: 100%;
   }
 }
